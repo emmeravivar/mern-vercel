@@ -3,7 +3,7 @@
     const app = express()
 
     app.get('/', (req, res) => {
-        res.send('Express JS on Vercel')
+        res.send('Express JS on Vercel or not')
     })
 
     app.get('/ping', (req, res) => {
