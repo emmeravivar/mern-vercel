@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const usersRoutes = require('./routes/User.routes.js'); 
 
 //Conectar nuestra BBDD
 const connectBD = async () => {
@@ -19,13 +20,7 @@ const connectBD = async () => {
 //Conectando nuestra BBDD
 connectBD();
 
-app.get('/', (req, res) => {
-    res.send('Express JS on Vercel or not');
-});
-
-app.get('/ping', (req, res) => {
-    res.send('pong');
-});
+app.use("/api/user", usersRoutes);
 
 const port = process.env.PORT || 8080;
 
