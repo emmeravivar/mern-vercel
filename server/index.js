@@ -1,11 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require("dotenv");
 const app = express();
+
+//Configurando dotenv
+dotenv.config(); // busca un archivo .env
 
 //Conectar nuestra BBDD
 const connectBD = async () => {
     try {
-        const connection = await mongoose.connect('mongodb+srv://root:root@cluster0.i04c4yl.mongodb.net/?retryWrites=true&w=majority', {
+        const connection = await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
